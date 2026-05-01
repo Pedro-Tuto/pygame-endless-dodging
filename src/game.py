@@ -7,7 +7,7 @@ from src.constants import (
 )
 from src.assets import load_assets
 from src.ui import button, text_objects
-from src.entities import Bird, Obstacle
+from src.entities import Bird, Obstacle, Background
 from src.database import save_score, get_scores, get_top_cumulative
 
 # Cores extras
@@ -73,6 +73,7 @@ class Game:
         username       = ""
         cursor_visible = True
         cursor_timer   = 0
+        background     = Background(self.assets['bg_img'])
 
         while True:
             for event in pygame.event.get():
@@ -92,7 +93,9 @@ class Game:
                 cursor_visible = not cursor_visible
                 cursor_timer   = 0
 
-            self.display.fill(roxo)
+            background.update()
+            background.draw(self.display)
+            
             self._draw_text_center("SEU NOME:", size=90, y_offset=-120, color=preto)
 
             cursor = "|" if cursor_visible else " "
@@ -109,13 +112,17 @@ class Game:
     def game_intro(self):
         """Tela de menu inicial."""
         pygame.mixer.Sound.play(self.assets['title'])
+        background = Background(self.assets['bg_img'])
+        
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
 
-            self.display.fill(roxo)
+            background.update()
+            background.draw(self.display)
+            
             self._draw_text_center("THRUSH RUSH!", y_offset=-220)
             self._draw_hall_of_fame()
 
@@ -273,9 +280,10 @@ class Game:
         pygame.mixer.Sound.stop(self.assets['title'])
         pygame.mixer.music.play(-1)
 
-        bird     = Bird(x=LARGURA * 0.40, y=ALTURA * 0.70, image=self.assets['bird_img'])
-        obstacle = Obstacle()
-        dodged   = 0
+        background = Background(self.assets['bg_img'])
+        bird       = Bird(x=LARGURA * 0.40, y=ALTURA * 0.70, image=self.assets['bird_img'])
+        obstacle   = Obstacle()
+        dodged     = 0
 
         while True:
             keys = pygame.key.get_pressed()
@@ -299,7 +307,9 @@ class Game:
             elif keys[pygame.K_RIGHT]:
                 bird.move_right()
 
-            self.display.fill(azul_claro)
+            background.update()
+            background.draw(self.display)
+            
             obstacle.draw(self.display)
             obstacle.move()
             bird.draw(self.display)

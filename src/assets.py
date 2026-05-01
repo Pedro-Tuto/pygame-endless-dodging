@@ -7,6 +7,7 @@ def load_assets():
 
     # Imagens
     assets['bird_img'] = pygame.image.load(r"src\images\bird.png")
+    assets['bg_img']   = pygame.image.load(r"src\images\background.png")
 
     # Sons
     assets['crash_sound'] = pygame.mixer.Sound(r"src\sounds\crash1.mp3")
