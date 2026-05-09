@@ -3,7 +3,34 @@ import random
 from src.constants import largura_passaro, branco, LARGURA, ALTURA
 
 
+class Background:
+    """Implementa um fundo infinito simples em loop vertical."""
+    def __init__(self, image, speed=2):
+        self.speed = speed
+        self.y = 0
+        
+        height_ratio = ALTURA / image.get_height()
+        tile_w = int(image.get_width() * height_ratio)
+        tile = pygame.transform.scale(image, (tile_w, ALTURA))
+        
+        self.image = pygame.Surface((LARGURA, ALTURA))
+        for x in range(0, LARGURA, tile_w):
+            self.image.blit(tile, (x, 0))
+
+    def update(self):
+        """Atualiza a posição e reinicia o ciclo ao final da imagem."""
+        self.y += self.speed
+        if self.y >= ALTURA:
+            self.y = 0
+
+    def draw(self, surface):
+        """Desenha a imagem em loop, sem deixar buracos."""
+        surface.blit(self.image, (0, self.y))
+        surface.blit(self.image, (0, self.y - ALTURA))
+
+
 class Bird:
+
     """Representa o pássaro controlado pelo jogador."""
 
     def __init__(self, x, y, image):
