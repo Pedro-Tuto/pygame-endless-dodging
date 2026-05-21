@@ -147,7 +147,7 @@ class Game:
             self.clock.tick(15)
 
     def show_shop(self, username):
-        """Tela da Loja de Aventureiros com UI de fantasia polida."""
+        """Tela da Loja."""
         skins = [
             {"id": "skin_knight", "name": "passaro Lendário", "price": 2500, "desc": "Armadura vermelha e dourada"},
             {"id": "skin_mage",   "name": "passaro mago",          "price": 3000, "desc": "Roupão azul e cajado"},
@@ -188,11 +188,10 @@ class Game:
             overlay.fill((10, 10, 30, 160))
             self.display.blit(overlay, (0, 0))
 
-            # --- CABEÇALHO (Banner de Metal) ---
             # Banner principal
             pygame.draw.rect(self.display, METAL_DOURADO, (LARGURA//2 - 400, 20, 800, 100), border_radius=10)
             pygame.draw.rect(self.display, AZUL_PETROLEO, (LARGURA//2 - 390, 30, 780, 80), border_radius=8)
-            self._draw_text_center("LOJA DE AVENTUREIROS", size=60, y_offset=-430, color=BRILHO_OURO)
+            self._draw_text_center("LOJA", size=60, y_offset=-430, color=BRILHO_OURO)
 
             # Contador de Ouro
             gold_rect = pygame.Rect(LARGURA - 350, 35, 320, 70)
