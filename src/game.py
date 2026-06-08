@@ -63,6 +63,7 @@ class Game:
         """Aguarda o mouse ser solto para evitar click bleed-through entre telas."""
         while pygame.mouse.get_pressed()[0]:
             pygame.event.pump()
+            pygame.time.wait(100)
 
     def _draw_hall_of_fame(self):
         top = get_top_cumulative(3)
@@ -193,6 +194,7 @@ class Game:
                 == "shop"
             ):
                 username = self.get_username()
+                self._wait_mouse_release()
                 self.show_shop(username)
 
             pygame.display.update()
@@ -201,10 +203,10 @@ class Game:
     def show_shop(self, username):
         skins = [
             {
-                "id": "skin_knight",
-                "name": "passaro Lendário",
-                "price": 2500,
-                "desc": "Armadura vermelha e dourada",
+                "id": "bird_img",
+                "name": "Pássaro Clássico",
+                "price": 0,
+                "desc": "Visual clássico do passarinho",
             },
             {
                 "id": "skin_mage",
@@ -213,10 +215,10 @@ class Game:
                 "desc": "Roupão azul e cajado",
             },
             {
-                "id": "skin_rogue",
-                "name": "passaro Ladino",
-                "price": 1800,
-                "desc": "Capa preta e adaga",
+                "id": "ghost_bird",
+                "name": "Pássaro Fantasma",
+                "price": 1,
+                "desc": "Transparente e assustador",
             },
             {
                 "id": "skin_druid",

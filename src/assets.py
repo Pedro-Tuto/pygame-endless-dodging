@@ -10,7 +10,7 @@ def load_assets():
     assets["bg_img"] = pygame.image.load(r"src\images\background.png").convert()
 
     # Novas skins
-    assets["skin_red"] = pygame.image.load(r"src\images\bird.png").convert_alpha()
+    assets["ghost_bird"] = pygame.image.load(r"src\images\ghost_bird.png").convert_alpha()
     assets["skin_gold"] = pygame.image.load(r"src\images\bird.png").convert_alpha()
 
     # Novos backgrounds
