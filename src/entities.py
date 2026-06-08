@@ -1,18 +1,19 @@
 import pygame
 import random
-from src.constants import largura_passaro, branco, LARGURA, ALTURA
+from src.constants import largura_passaro, vermelho_claro, LARGURA, ALTURA
 
 
 class Background:
     """Implementa um fundo infinito simples em loop vertical."""
+
     def __init__(self, image, speed=2):
         self.speed = speed
         self.y = 0
-        
+
         height_ratio = ALTURA / image.get_height()
         tile_w = int(image.get_width() * height_ratio)
         tile = pygame.transform.scale(image, (tile_w, ALTURA))
-        
+
         self.image = pygame.Surface((LARGURA, ALTURA))
         for x in range(0, LARGURA, tile_w):
             self.image.blit(tile, (x, 0))
@@ -30,7 +31,6 @@ class Background:
 
 
 class Bird:
-
     """Representa o pássaro controlado pelo jogador."""
 
     def __init__(self, x, y, image):
@@ -52,10 +52,10 @@ class Obstacle:
     """Representa um obstáculo que cai do topo da tela."""
 
     def __init__(self):
-        self.width  = 200
+        self.width = 200
         self.height = 100
-        self.speed  = 7
-        self.color  = branco
+        self.speed = 7
+        self.color = vermelho_claro # Placeholder para os objetos que virão depois
         self.x = random.randrange(0, LARGURA)
         self.y = -600
 
