@@ -6,12 +6,21 @@ def load_assets():
     assets = {}
 
     # Imagens
-    assets['bird_img'] = pygame.image.load(r"src\images\bird.png")
+    assets["bird_img"] = pygame.image.load(r"src\images\bird.png").convert_alpha()
+    assets["bg_img"] = pygame.image.load(r"src\images\background.png").convert()
+
+    # Novas skins
+    assets["ghost_bird"] = pygame.image.load(r"src\images\ghost_bird.png").convert_alpha()
+    assets["skin_gold"] = pygame.image.load(r"src\images\bird.png").convert_alpha()
+
+    # Novos backgrounds
+    assets["bg_night"] = pygame.image.load(r"src\images\background.png").convert()
+    assets["bg_space"] = pygame.image.load(r"src\images\background.png").convert()
 
     # Sons
-    assets['crash_sound'] = pygame.mixer.Sound(r"src\sounds\crash1.mp3")
-    assets['swoosh']      = pygame.mixer.Sound(r"src\sounds\Swoosh.mp3")
-    assets['title']       = pygame.mixer.Sound(r"src\sounds\sandman.mp3")
+    assets["crash_sound"] = pygame.mixer.Sound(r"src\sounds\crash1.mp3")
+    assets["swoosh"] = pygame.mixer.Sound(r"src\sounds\Swoosh.mp3")
+    assets["title"] = pygame.mixer.Sound(r"src\sounds\sandman.mp3")
 
     # Música de fundo (carregada no mixer separado)
     pygame.mixer.music.load(r"src\sounds\toto.mp3")
