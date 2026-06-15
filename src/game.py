@@ -142,7 +142,7 @@ class Game:
 
             background.update()
             background.draw(self.display)
-            self._draw_text_center("THRUSH RUSH!", y_offset=-220)
+            self._draw_text_center("VOA, PÁSSARO!", y_offset=-220)
             self._draw_hall_of_fame()
 
             if (
