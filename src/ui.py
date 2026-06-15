@@ -13,7 +13,7 @@ def button(display, msg, x, y, w, h, ic, ac, action=None):
     """
     Desenha um botão e retorna a action se ele for clicado,
     ou None caso contrário.
-    
+
     Mudança em relação ao original: em vez de chamar funções
     diretamente, retorna a action string para o chamador decidir.
     """
