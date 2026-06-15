@@ -209,40 +209,40 @@ class Game:
                 "desc": "Visual clássico do passarinho",
             },
             {
-                "id": "skin_mage",
-                "name": "passaro mago",
-                "price": 3000,
-                "desc": "Roupão azul e cajado",
+                "id": "skin_orange",
+                "name": "Pássaro Trump",
+                "price": 10,
+                "desc": "Laranjão",
             },
             {
                 "id": "ghost_bird",
                 "name": "Pássaro Fantasma",
-                "price": 1,
+                "price": 5,
                 "desc": "Transparente e assustador",
             },
             {
-                "id": "skin_druid",
-                "name": "passaro Druida",
-                "price": 2200,
-                "desc": "Vestes verdes e lobo",
+                "id": "skin_gold",
+                "name": "Pássaro Dourado",
+                "price": 15,
+                "desc": "golde",
             },
             {
-                "id": "skin_paladin",
-                "name": "passaro da Luz",
-                "price": 2000,
-                "desc": "Armadura branca brilhante",
+                "id": "skin_crow",
+                "name": "Corvo Sombrio",
+                "price": 25,
+                "desc": "Corvão",
             },
             {
                 "id": "skin_bard",
-                "name": "passaro das Nuvens",
+                "name": "Pássaro das Nuvens",
                 "price": 1500,
                 "desc": "Chapéu verde e alaúde",
             },
         ]
         backgrounds = [
             {"id": "bg_img", "name": "Planície Pixel", "price": 0},
-            {"id": "bg_night", "name": "Noite Mística", "price": 1000},
-            {"id": "bg_space", "name": "Vácuo Arcano", "price": 3000},
+            {"id": "bg_night", "name": "Noite Mística", "price": 10},
+            {"id": "bg_space", "name": "Vácuo Arcano", "price": 50},
         ]
 
         current_tab = "skin"
